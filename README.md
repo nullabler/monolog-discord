@@ -28,5 +28,22 @@ $log->info('hello world!');
 
 ![Sample image](sample.png)
 
+## Symfony setting
+```yaml
+monolog:
+    handlers:
+        main:
+            ...
+        discord_webhook_handler:
+            type: service
+            id: discord_webhook_handler
+
+services:
+    discord_webhook_handler:
+        class: MonologDiscord\DiscordWebhookHandler
+        arguments:
+            $webhookUrl: '%discord.webhook%'
+```
+
 # License
-This tool in Licensed under MIT, so feel free to fork it and make it better that it is !
+See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
