@@ -4,7 +4,6 @@ namespace MonologDiscord;
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Handler\Curl\Util;
 use Monolog\Logger;
-use RuntimeException;
 
 class DiscordWebhookHandler extends AbstractProcessingHandler
 {
@@ -41,10 +40,7 @@ class DiscordWebhookHandler extends AbstractProcessingHandler
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
-
-        if (!is_string(Util::execute($ch))) {
-            throw new RuntimeException('Discord Webhook error. Description: No response');
-        }
+        Util::execute($ch);
     }
 
     private function getColor(int $level): int

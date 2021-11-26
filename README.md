@@ -16,7 +16,7 @@ $webhook = 'Your Webhook URL';
 $log = new Monolog\Logger('discord');
 $log->pushHandler(new DiscordWebhookHandler($webhook));
 
-$log->info('hello world !');
+$log->info('hello world!');
 ```
 
 ![Sample image](sample.png)
