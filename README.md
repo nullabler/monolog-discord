@@ -42,7 +42,7 @@ services:
     discord_webhook_handler:
         class: MonologDiscord\DiscordWebhookHandler
         arguments:
-            $webhookUrl: '%discord.webhook%'
+            $webhookUrl: '%env(string:DISCORD_WEBHOOK)%'
 ```
 
 # License
