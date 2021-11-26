@@ -1,5 +1,8 @@
 # unixoff/monolog-discord
 
+This package for sending logs of discord to a webhook channel
+
+-------------------------------------------------
 ## Installation
 `composer require unixoff/monolog-discord`
 
