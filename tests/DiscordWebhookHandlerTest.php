@@ -14,6 +14,7 @@ class DiscordWebhookHandlerTest extends TestCase
 
         $log = new Logger('discord');
         $log->pushHandler(new DiscordWebhookHandler($_ENV['WEBHOOK_URL']));
-        $this->assertTrue($log->critical('Hello world!'));
+        $log->critical('Hello world!');
+        $this->assertSame('discord', $log->getName());
     }
 }
