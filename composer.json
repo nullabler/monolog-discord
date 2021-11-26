@@ -1,0 +1,23 @@
+{
+  "name": "unixoff/monolog-discord",
+  "description": "This package for sending logs of discord to a webhook channel.",
+  "type": "monolog-handler",
+  "keywords": ["discord", "webhook", "handler", "monolog", "logs"],
+  "license": "MIT",
+  "homepage": "https://github.com/unixoff/monolog-discord",
+  "authors": [
+    {
+      "name": "Barannikov Stepan",
+      "email": "mail@tmake.ru"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "monolog/monolog": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Unixoff\\MonologDiscord\\": "src"
+    }
+  }
+}
