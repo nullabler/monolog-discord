@@ -1,15 +1,15 @@
 <?php
 namespace MonologDiscord;
 
+use RuntimeException;
 use Monolog\Handler\AbstractProcessingHandler;
-use Monolog\Handler\Curl\Util;
 use Monolog\Logger;
 
 class DiscordWebhookHandler extends AbstractProcessingHandler
 {
-    private const COLOR_RED = 16711680;
-    private const COLOR_PURPLE = 10027263;
-    private const COLOR_GREEN = 54041;
+    const COLOR_RED = 16711680;
+    const COLOR_PURPLE = 10027263;
+    const COLOR_GREEN = 54041;
 
     public function __construct(
         private string $webhookUrl,
@@ -34,13 +34,31 @@ class DiscordWebhookHandler extends AbstractProcessingHandler
                 ['title' => 'Level: ' . $levelName, 'description' => $formatted, 'color' => $this->getColor($level)]
             ]
         ]);
+        $this->curlExecute($payload);
+    }
+
+    protected function curlExecute(string $payload, int $retries = 5): void
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->webhookUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
-        Util::execute($ch);
+        while ($retries--) {
+            $curlResponse = curl_exec($ch);
+            if ($curlResponse === false) {
+                $curlErrno = curl_errno($ch);
+                if (!$retries) {
+                    $curlError = curl_error($ch);
+                    curl_close($ch);
+                    throw new RuntimeException(sprintf('Curl error (code %d): %s', $curlErrno, $curlError));
+                }
+
+                continue;
+            }
+            curl_close($ch);
+        }
     }
 
     private function getColor(int $level): int
