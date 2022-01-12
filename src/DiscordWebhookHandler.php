@@ -47,17 +47,17 @@ class DiscordWebhookHandler extends AbstractProcessingHandler
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
         while ($retries--) {
             $curlResponse = curl_exec($ch);
-            if ($curlResponse === false) {
-                $curlErrno = curl_errno($ch);
-                if (!$retries) {
-                    $curlError = curl_error($ch);
-                    curl_close($ch);
-                    throw new RuntimeException(sprintf('Curl error (code %d): %s', $curlErrno, $curlError));
-                }
-
-                continue;
+            if ($curlResponse !== false) {
+                curl_close($ch);
+                return;
             }
-            curl_close($ch);
+
+            $curlErrno = curl_errno($ch);
+            if (!$retries) {
+                $curlError = curl_error($ch);
+                curl_close($ch);
+                throw new RuntimeException(sprintf('Curl error (code %d): %s', $curlErrno, $curlError));
+            }
         }
     }
 
