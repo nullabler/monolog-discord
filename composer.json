@@ -1,9 +1,9 @@
 {
-  "name": "unixoff/monolog-discord",
+  "name": "dev-null-group/monolog-discord",
   "description": "This package for sending logs of discord to a webhook channel.",
   "type": "library",
   "keywords": ["discord", "webhook", "handler", "monolog", "logs", "logging", "symfony"],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/unixoff/monolog-discord",
   "support": {
     "issues": "https://github.com/unixoff/monolog-discord/issues",

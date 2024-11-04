@@ -1,14 +1,13 @@
-# nullabler/monolog-discord
-[![Latest Stable Version](http://poser.pugx.org/unixoff/monolog-discord/v)](https://packagist.org/packages/unixoff/monolog-discord) 
-[![Latest Unstable Version](http://poser.pugx.org/unixoff/monolog-discord/v/unstable)](https://packagist.org/packages/unixoff/monolog-discord) 
-[![License](http://poser.pugx.org/unixoff/monolog-discord/license)](https://packagist.org/packages/unixoff/monolog-discord) 
-[![PHP Version Require](http://poser.pugx.org/unixoff/monolog-discord/require/php)](https://packagist.org/packages/unixoff/monolog-discord)
+# dev-null-group/monolog-discord
+[![Latest Stable Version](https://img.shields.io/packagist/v/unixoff/monolog-discord)](https://packagist.org/packages/unixoff/monolog-discord)
+[![License](https://img.shields.io/packagist/l/unixoff/monolog-discord)](https://packagist.org/packages/unixoff/monolog-discord)
+[![PHP Version Require](https://img.shields.io/packagist/php-v/unixoff/monolog-discord)](https://packagist.org/packages/unixoff/monolog-discord)
 
 This package for sending logs of discord to a webhook channel
 
 -------------------------------------------------
 ## Installation
-`composer require nullabler/monolog-discord`
+`composer require dev-null-group/monolog-discord`
 
 ## Usage
 ```php
@@ -16,7 +15,7 @@ This package for sending logs of discord to a webhook channel
 
 require 'vendor/autoload.php';
 
-use nullabler\MonologDiscord\DiscordWebhookHandler;
+use DevNullGroup\MonologDiscord\DiscordWebhookHandler;
 
 $webhook = 'Your Webhook URL';
 
