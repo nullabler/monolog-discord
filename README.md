@@ -1,4 +1,4 @@
-# nullabler/monolog-discord
+# dev-null-group/monolog-discord
 [![Latest Stable Version](http://poser.pugx.org/unixoff/monolog-discord/v)](https://packagist.org/packages/unixoff/monolog-discord) 
 [![Latest Unstable Version](http://poser.pugx.org/unixoff/monolog-discord/v/unstable)](https://packagist.org/packages/unixoff/monolog-discord) 
 [![License](http://poser.pugx.org/unixoff/monolog-discord/license)](https://packagist.org/packages/unixoff/monolog-discord) 
