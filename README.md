@@ -15,7 +15,7 @@ This package for sending logs of discord to a webhook channel
 
 require 'vendor/autoload.php';
 
-use dev-null-group\MonologDiscord\DiscordWebhookHandler;
+use DevNullGroup\MonologDiscord\DiscordWebhookHandler;
 
 $webhook = 'Your Webhook URL';
 
